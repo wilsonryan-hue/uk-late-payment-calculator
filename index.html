@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UK Late Payment Interest Calculator (8% + base rate) · free · TCH Works</title>
+<meta name="description" content="Free UK late payment calculator. Works out statutory interest (8% + Bank of England base rate), the £40/£70/£100 fixed sum and the total a business customer owes you, with the working shown and a ready-to-send interest invoice.">
+<link rel="canonical" href="https://www.tchworks.co.uk/uk-late-payment-calculator/">
+<meta property="og:title" content="Free UK late payment interest calculator">
+<meta property="og:description" content="Statutory interest, fixed sum and total owed on an overdue business invoice, with the working shown.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"UK Late Payment Interest Calculator","url":"https://www.tchworks.co.uk/uk-late-payment-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"GBP"},"publisher":{"@type":"Organization","name":"TCH Works","url":"https://www.tchworks.co.uk/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much interest can I charge on a late invoice in the UK?","acceptedAnswer":{"@type":"Answer","text":"For business-to-business debts, statutory interest is 8% a year plus the Bank of England base rate, unless your contract sets a different rate. The base rate used is the one in force on 30 June or 31 December immediately before the invoice became late."}},
+{"@type":"Question","name":"What is the fixed sum for late payment?","acceptedAnswer":{"@type":"Answer","text":"You can add a fixed sum once per invoice: £40 for debts up to £999.99, £70 for £1,000 to £9,999.99, and £100 for £10,000 or more."}},
+{"@type":"Question","name":"When does an invoice become late if no payment date was agreed?","acceptedAnswer":{"@type":"Answer","text":"30 days after the customer gets the invoice, or 30 days after you deliver the goods or service if that is later."}},
+{"@type":"Question","name":"Can I charge late payment interest to a private customer?","acceptedAnswer":{"@type":"Answer","text":"No. The Late Payment of Commercial Debts (Interest) Act 1998 only covers debts between businesses."}}]}</script>
+<style>
+:root{--navy:#0B1C2C;--gold:#C4A35A;--bg:#F7F4EF;--ink:#1A1A1A}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+header{background:var(--navy);padding:.9rem 1.25rem}header a{color:var(--gold);font-weight:700;text-decoration:none}
+.wrap{max-width:46rem;margin:0 auto;padding:1.5rem 1.25rem 3rem}h1,h2{font-family:Georgia,"Times New Roman",serif;color:var(--navy);line-height:1.2}
+h1{font-size:1.9rem;margin:.2rem 0 .6rem}.kicker{color:#8a6d2b;text-transform:uppercase;letter-spacing:.05em;font-size:.8rem;font-weight:700;margin:0}
+.card{background:#fff;border:1px solid #ddd6c8;border-radius:8px;padding:1.25rem;margin:1.25rem 0}
+label{display:block;font-weight:600;font-size:.9rem;color:var(--navy);margin:.85rem 0 .25rem}
+input,select{width:100%;padding:.6rem .65rem;border:1px solid #bbb;border-radius:5px;font-size:1rem;background:#fff}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}@media(max-width:560px){.row{grid-template-columns:1fr}}
+.check{display:flex;gap:.5rem;align-items:flex-start;font-weight:400;color:var(--ink)}.check input{width:auto;margin-top:.3rem}
+.hint{font-size:.82rem;color:#555;margin:.2rem 0 0}
+table{width:100%;border-collapse:collapse;margin:.5rem 0}td{padding:.45rem .3rem;border-bottom:1px solid #eee}td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+tr.total td{font-weight:800;font-size:1.1rem;color:var(--navy);border-top:2px solid var(--navy)}
+.stop{background:#fff4e5;border-left:4px solid #d48a00;padding:.8rem 1rem;border-radius:4px}
+pre{white-space:pre-wrap;background:#f3f1ec;border:1px solid #ddd;padding:.8rem;border-radius:5px;font-size:.88rem}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:800;padding:.7rem 1.2rem;border-radius:5px;text-decoration:none;border:0;cursor:pointer;font-size:1rem}
+.btn.ghost{background:#fff;border:2px solid var(--navy)}
+.cta{background:var(--navy);color:#fff;border-radius:8px;padding:1.25rem;margin:1.5rem 0}.cta h2{color:var(--gold);margin-top:0}.cta a.btn{margin:.3rem .4rem .3rem 0}
+footer{font-size:.85rem;color:#555;border-top:1px solid #ddd;margin-top:2rem;padding-top:1rem}footer a{color:var(--navy)}
+</style>
+</head>
+<body>
+<header><a href="https://www.tchworks.co.uk/">TCH Works</a></header>
+<main class="wrap">
+<p class="kicker">Free tool · UK business-to-business invoices</p>
+<h1>Late payment interest calculator</h1>
+<p>Owed money by another business? Enter the invoice and this works out the statutory interest (8% plus the Bank of England base rate), the fixed sum you can add, and the total owed today, with every line of the working shown. It runs in your browser and nothing you type is sent anywhere.</p>
+
+<form class="card" id="f" onsubmit="return false">
+  <div class="row">
+    <div><label for="amount">Amount owed (£)</label><input id="amount" type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="2400.00" required></div>
+    <div><label for="ref">Invoice number</label><input id="ref" type="text" placeholder="INV-104"></div>
+  </div>
+  <label for="mode">Was a payment date agreed?</label>
+  <select id="mode">
+    <option value="date">Yes, a date (for example "due 31 July")</option>
+    <option value="terms">Yes, a number of days from the invoice (for example "30 days")</option>
+    <option value="none">No date was agreed</option>
+  </select>
+  <div class="row">
+    <div id="w-due"><label for="due">Due date</label><input id="due" type="date"></div>
+    <div id="w-inv"><label for="inv">Invoice date (or date they received it)</label><input id="inv" type="date"></div>
+    <div id="w-terms"><label for="terms">Payment terms (days)</label><input id="terms" type="number" min="0" step="1" value="30"></div>
+    <div id="w-del"><label for="del">Date you delivered the goods or service</label><input id="del" type="date"><p class="hint">Leave blank if it was before the invoice.</p></div>
+  </div>
+  <div class="row">
+    <div><label for="asof">Work it out up to</label><input id="asof" type="date"></div>
+    <div><label for="base">Base rate override (%)</label><input id="base" type="number" step="0.01" placeholder="auto"><p class="hint">Leave blank to use the rate from the Bank of England table built in.</p></div>
+  </div>
+  <label class="check"><input type="checkbox" id="consumer"> The customer is a private individual, not a business</label>
+  <label class="check"><input type="checkbox" id="contract"> My contract or terms set their own late-payment interest rate</label>
+</form>
+
+<section class="card" id="out" aria-live="polite"><p>Enter the amount and dates above to see what you can claim.</p></section>
+
+<section class="card" id="inv-box" hidden>
+  <h2>Ready-to-send interest invoice</h2>
+  <p>GOV.UK says to send a new invoice if you decide to add interest. Copy this into it, or into your chase email.</p>
+  <pre id="invtext"></pre>
+  <button class="btn ghost" type="button" id="copy">Copy text</button>
+</section>
+
+<section class="cta">
+  <h2>Still not paid?</h2>
+  <p>The UK Ltd Invoice Chase Swipe File gives you the exact words for every stage: the friendly reminder, the final notice that adds interest and the fixed sum, the letter before action, and the phone script for the accounts team. Printable, fill in the gaps, send today.</p>
+  <a class="btn" href="https://www.tchworks.co.uk/shop/ltd-invoice-swipe/?src=latepay-calc">Get the Chase Swipe File · £14.99</a>
+  <a class="btn ghost" style="color:var(--navy)" href="https://www.tchworks.co.uk/lba.html?src=latepay-calc">Free letter before action form</a>
+  <p class="hint" style="color:#cfd6dd">Keep on top of who owes you with the <a style="color:var(--gold)" href="https://tchworks.gumroad.com/l/mdokt">Small Business Bookkeeping Sheets UK</a>.</p>
+</section>
+
+<h2>How the figures are worked out</h2>
+<p><strong>When it is late.</strong> If you agreed a payment date, the invoice is late from the next day. If you did not, the law says it is late 30 days after the customer gets the invoice, or 30 days after you deliver, if that is later. Agreed terms are usually up to 60 days between businesses and up to 30 days for public authorities.</p>
+<p><strong>Interest.</strong> Statutory interest is 8% a year plus the Bank of England base rate. The base rate used is the one in force on 30 June or 31 December immediately before the invoice became late, and it stays the same for that debt even if the Bank changes the rate later. Daily interest is the yearly figure divided by 365. This calculator rounds to the penny only at the end, so it can be a few pence higher than the GOV.UK worked example, which rounds the daily figure first.</p>
+<p><strong>Fixed sum.</strong> Once per invoice you can add £40 for a debt up to £999.99, £70 for £1,000 to £9,999.99, and £100 for £10,000 or more.</p>
+<p><strong>When it does not apply.</strong> Not for private customers, and not if your contract sets its own interest rate (use that instead).</p>
+<p class="hint">Figures from the Late Payment of Commercial Debts (Interest) Act 1998 as set out on <a href="https://www.gov.uk/late-commercial-payments-interest-debt-recovery">GOV.UK</a>, and the <a href="https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp">Bank of England Bank Rate history</a> (table last checked <span id="checked"></span>). This is general information, not legal advice. For a disputed debt, an insolvent customer or a claim over the small claims limit, get advice.</p>
+
+<footer>Free and open source (MIT). <a href="https://github.com/wilsonryan-hue/uk-late-payment-calculator">Get the code on GitHub</a> to put this calculator on your own site. Made by <a href="https://www.tchworks.co.uk/?src=latepay-calc">TCH Works</a>.</footer>
+</main>
+<script src="latepay.js"></script>
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)}, M=LatePay.money;
+  $("checked").textContent=new Date(LatePay.DATA_CHECKED).toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+  $("asof").value=new Date().toISOString().slice(0,10);
+  var q=new URLSearchParams(location.search);["amount","ref","due","inv","terms","del","asof","base"].forEach(function(k){if(q.get(k))$(k).value=q.get(k)});if(q.get("mode"))$("mode").value=q.get("mode");
+  function show(){var m=$("mode").value;$("w-due").hidden=m!=="date";$("w-inv").hidden=m==="date";$("w-terms").hidden=m!=="terms";$("w-del").hidden=m!=="none";}
+  function run(){
+    show();var out=$("out"),box=$("inv-box");box.hidden=true;
+    var a=parseFloat($("amount").value),m=$("mode").value,o={amount:a,asOf:$("asof").value,baseRate:$("base").value,consumer:$("consumer").checked,contractRate:$("contract").checked};
+    if(m==="date")o.dueDate=$("due").value;else{o.invoiceDate=$("inv").value;if(m==="terms")o.termsDays=$("terms").value;else if($("del").value)o.delivered=$("del").value;}
+    if(!(a>0)||(m==="date"&&!o.dueDate)||(m!=="date"&&!o.invoiceDate)||!o.asOf){out.innerHTML="<p>Enter the amount and dates above to see what you can claim.</p>";return;}
+    var r;try{r=LatePay.calculate(o)}catch(e){out.innerHTML='<p class="stop">'+e.message+'</p>';return;}
+    if(!r.ok){out.innerHTML='<p class="stop">'+r.reason+'</p>';return;}
+    if(!r.late){out.innerHTML="<h2>Not late yet</h2><p>This invoice is due on "+r.dueDate+", so nothing extra can be added before then. It becomes late on "+r.lateFrom+".</p>";return;}
+    out.innerHTML="<h2>You can claim "+M(r.total)+"</h2><table>"+
+      "<tr><td>Invoice amount</td><td>"+M(r.amount)+"</td></tr>"+
+      "<tr><td>Due date / late from</td><td>"+r.dueDate+" / "+r.lateFrom+"</td></tr>"+
+      "<tr><td>Days late (to "+r.asOf+")</td><td>"+r.daysLate+"</td></tr>"+
+      "<tr><td>Base rate on "+r.referenceDate+" ("+r.baseRateSource+")</td><td>"+r.baseRate.toFixed(2)+"%</td></tr>"+
+      "<tr><td>Interest rate (8% + base)</td><td>"+r.rate.toFixed(2)+"% a year</td></tr>"+
+      "<tr><td>Yearly interest</td><td>"+M(r.annualInterest)+"</td></tr>"+
+      "<tr><td>Daily interest</td><td>£"+r.dailyInterestExact.toFixed(4)+"</td></tr>"+
+      "<tr><td>Interest to date</td><td>"+M(r.interest)+"</td></tr>"+
+      "<tr><td>Fixed sum</td><td>"+M(r.fixedSum)+"</td></tr>"+
+      "<tr class='total'><td>Total owed now</td><td>"+M(r.total)+"</td></tr></table>"+
+      (r.warnLongTerms?'<p class="stop">Terms over 60 days between businesses must be fair to both sides. If yours were imposed on you, get advice.</p>':"");
+    $("invtext").textContent=LatePay.interestInvoiceText(r,$("ref").value||"INV-001");box.hidden=false;
+  }
+  ["input","change"].forEach(function(ev){$("f").addEventListener(ev,run)});
+  $("copy").onclick=function(){navigator.clipboard.writeText($("invtext").textContent).then(function(){$("copy").textContent="Copied"})};
+  run();
+})();
+</script>
+</body>
+</html>
