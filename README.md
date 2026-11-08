@@ -13,7 +13,7 @@ It refuses to calculate statutory interest for private customers or when your co
 
 ## Printables
 
-**Free chase pack (A4 PDF):** [download the Release](https://github.com/wilsonryan-hue/uk-late-payment-calculator/releases/tag/v1.0.0-free-printable) — when you can claim, fixed-sum table (£40/£70/£100), blank worksheet, worked EXAMPLE INV-104 (£2,400 → £72.49 + £70 = £2,542.49, verified with `node cli.js`), paste-ready interest invoice wording, and chase sequence.
+**Free chase pack (A4 PDF):** [download the Release](https://github.com/wilsonryan-hue/uk-late-payment-calculator/releases/tag/v1.0.0-free-printable) — when you can claim, fixed-sum table (£40/£70/£100), blank worksheet, worked EXAMPLE INV-104 (£2,400 → £72.49 + £70 = £2,542.49, verified with `node cli.js`), paste-ready interest invoice wording, and chase sequence. Also free on [Gumroad](https://tchworks.gumroad.com/l/bxoxml?utm_source=github&utm_campaign=latepay-repo).
 
 Still unpaid after the interest invoice? The [UK Ltd Invoice Chase Swipe File](https://www.tchworks.co.uk/shop/ltd-invoice-swipe/?src=github-latepay) (£14.99) has the exact wording for the final notice, letter before action and phone call, and there's a [free letter before action form](https://www.tchworks.co.uk/lba.html?src=github-latepay).
 
